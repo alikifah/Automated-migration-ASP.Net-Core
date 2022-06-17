@@ -75,7 +75,7 @@ namespace SqlServerHelper
                 var cmd = con.CreateCommand();
                 if (!isTableExist(tablename))
                 {
-                    cmd.CommandText = @"CREATE TABLE " + tablename + " (" + key + " INTEGER PRIMARY KEY NOT NULL)";
+                    cmd.CommandText = @"CREATE TABLE " + tablename + " (" + key + " INTEGER PRIMARY KEY IDENTITY (1, 1) NOT NULL)";
                     cmd.ExecuteNonQuery();
                 }
                 
