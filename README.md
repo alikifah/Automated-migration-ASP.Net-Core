@@ -17,7 +17,7 @@ An ASP.Net Core library that handles automated creation of the Database and the 
    # Important:
    this library requires the model to have a single key property that is marked with Key attribute...
    Example:
-  ```
+  ```c#
    public class User
    {
         [Key] // Key attribute must be used only once before the ID property
