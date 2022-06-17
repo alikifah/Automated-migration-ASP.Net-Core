@@ -7,10 +7,9 @@ using SqliteHelper;
 
 namespace SqliteExtensions
 {
-    // 1- create table for model that has the same name as the DbSet in the associated  context
+    //  create table for model that has the same name as the DbSet in the associated  context
     public static class WebApplicationBuilder_Extension
     {
-
         /// <summary>
         /// Add DbContext with model only and create Database and table automatically using Reflection 
         /// </summary>
@@ -25,7 +24,6 @@ namespace SqliteExtensions
             string contextname = GetnameWithoutnameSpace(typeof(Context).ToString());
             string modelname = GetnameWithoutnameSpace(typeof(Model).ToString());
             string tableName = GetTableName<Context>();
-           // Console.WriteLine("tableName :" + tableName);
             if (tableName == null)
             {
                 throw new Exception("No valid table in" + contextname +"!\n" +
@@ -37,10 +35,8 @@ namespace SqliteExtensions
             string connectiobString = builder.Configuration.GetConnectionString(connectionName);
             //Data Source=books.db;Cache=Shared
             string dataSource = getdataSource(connectiobString);
-           // Console.WriteLine("----" + getdataSource(connectiobString));
             SqliteManager helper = new SqliteManager(dataSource);
             helper.CreateTable<Model>(tableName);
-
             AddDBContext<Context>(builder, connectionName);
         }
 
@@ -60,7 +56,6 @@ namespace SqliteExtensions
             string contextname = GetnameWithoutnameSpace(typeof(Context).ToString());
             string modelname = GetnameWithoutnameSpace(typeof(Model).ToString());
             string tableName = GetTableName<Context>();
-            Console.WriteLine("tableName :" + tableName);
             if (tableName == null)
             {
                 throw new Exception("No valid table in" + contextname + "!\n" +
@@ -69,14 +64,10 @@ namespace SqliteExtensions
                    "public DbSet<" + modelname +
                    "> " + modelname + "s { get; set; }");
             }
-
             string connectiobString = builder.Configuration.GetConnectionString(connectionName);
             string dataSource = getdataSource(connectiobString);
-
-            Console.WriteLine("----" + getdataSource( connectiobString));
             SqliteManager helper = new SqliteManager(dataSource);
             helper.CreateTable<Model>(tableName);
-
             AddDBContext<Context>(builder, connectionName);
             builder.Services.AddScoped<IRepository, Repository>();
         }
@@ -152,12 +143,6 @@ namespace SqliteExtensions
             else
                 return name;
         }
-
-
     }
-
-
-
-
 
 }
