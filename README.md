@@ -18,6 +18,7 @@ An ASP.Net Core library that handles automated creation of the Database and the 
    this library requires the model to have a single key property that is marked with Key attribute...
    Example:
   ```c#
+  using System.ComponentModel.DataAnnotations;
    public class User
    {
         [Key] // Key attribute must be used only once before the ID property
