@@ -12,9 +12,15 @@ An ASP.Net Core library that handles automated creation of the Database and the 
 
    ## How to use?
    the use of this library is so easy. All that is required is to include the Sqlite_AutomatedMigration_library or the SqlServer_AutomatedMigration_library      folder in your project and add a single line of code in the program.cs for each model you want to create the database table for.  
-   Example: builder.AddContext<User, UserDbContext>("DefaultConnection")
-         or builder.AddContext<User, UserDbContext, IUserRepository, UserRepository >("DefaultConnection") for repository pattern
-
+   Example:
+   ```c#
+      builder.AddContext<User, UserDbContext>("DefaultConnection")
+   ```
+   
+   or in case of using repository pattern:
+   ```c#
+   builder.AddContext<User, UserDbContext, IUserRepository, UserRepository >("DefaultConnection") 
+   ```
    ## Important:
    this library requires the model to have a single key property that is marked with Key attribute...
    Example:
