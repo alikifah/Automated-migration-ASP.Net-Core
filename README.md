@@ -17,13 +17,14 @@ An ASP.Net Core library that handles automated creation of the Database and the 
    # Important:
    this library requires the model to have a single key property that is marked with Key attribute...
    Example:
+  ´´´ 
    public class User
    {
         [Key] // Key attribute must be used only once before the ID property
         public int Id { get; set; } // this property can be named any thing as long as it is marked with [Key]
         public string Name { get; set; }
    }
-
+´´´
     Prerequisites for Sqlite_AutomatedMigration_library: 
     1- Microsoft.EntityFrameworkCore
     2- Microsoft.Data.Sqlite
