@@ -14,7 +14,7 @@ An ASP.Net Core library that handles automated creation of the Database and the 
    Example: builder.AddContext<User, UserDbContext>("DefaultConnection")
          or builder.AddContext<User, UserDbContext, IUserRepository, UserRepository >("DefaultConnection") for repository pattern
 
-   # Important:
+   ## Important:
    this library requires the model to have a single key property that is marked with Key attribute...
    Example:
   ```c#
