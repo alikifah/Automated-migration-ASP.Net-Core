@@ -83,7 +83,13 @@ namespace SqlServerHelper
                 {
                     if (!isColumnExist(tablename, col.Name))
                     {
-                        cmd.CommandText = @"ALTER TABLE " + tablename + " " + "ADD " + col.Name + " " + col.Type + " " + col.NotNull;
+                        string varType = "";
+                        if (col.Type == ColumnType.TEXT)
+                            varType = "NVARCHAR (MAX)";
+                        else 
+                            varType = col.Type.ToString();
+
+                        cmd.CommandText = @"ALTER TABLE " + tablename + " " + "ADD " + col.Name + " " + varType + " " + col.NotNull;
                         cmd.ExecuteNonQuery();
                     }
                 }
