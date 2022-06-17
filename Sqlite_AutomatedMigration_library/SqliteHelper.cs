@@ -1,4 +1,9 @@
-﻿using System;
+/* =============================================================================================================================================
+   Author: Al-Khafaji, Ali Kifah
+   Date:   16.06.2022
+   Description: A class, that manages SQL queries to Database throught Sqlite database-engine
+*/ =============================================================================================================================================
+using System;
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
 using System.Reflection;
@@ -36,30 +41,6 @@ namespace SqliteHelper
             this.datasource = datasource;
         }
 
-        public void test()
-        {
-            //DeleteTable("cars" , @"D:\hello.db");
-
-            //CreateTable();
-
-            //RemoveColumn( "cars", @"D:\hello.db", "COLUMNyear");
-            /*
-             List<Column> columns = new List<Column>()
-             {
-                 new Column("Name", ColumnType.TEXT ),
-                 new Column("Age", ColumnType.INT ),
-                 new Column("Email", ColumnType.TEXT )
-             };
-             CreateTable("users", columns);
-            AddColumn("users","hhh",ColumnType.NUMERIC);
-            */
-            // Console.WriteLine(" -------------- " + isColumnExist("users", "id" ));
-            // CreateTable<User>("ss");
-
-
-           // CreateTable<User>("Users");
-
-        }
         /// <summary>
         /// Main method to Create a Table For a model automatically using Reflection
         /// </summary>
@@ -117,7 +98,6 @@ namespace SqliteHelper
                 if (ct!= ColumnType.UNDEFINED)
                     columnsInModel.Add(new Column(n, ct, notNull) );
             }
-
 
             // delete the columns that are not found in models
             List<string> columnsNotInModel = new List<string>();
@@ -212,25 +192,6 @@ namespace SqliteHelper
                 cmd.ExecuteNonQuery();
             }
         }
-
-        /*
-        private void AddColumn(string tablename, string columnName, ColumnType type)
-        {
-            if (isColumnExist(columnName, tablename)) return;
-
-            string cs = @"Data Source=D:\hello.db";
-            using (var con = new SqliteConnection(cs))
-            {
-                con.Open();
-                var cmd = con.CreateCommand();
-//                cmd.CommandText = @"CREATE TABLE IF NOT EXISTS " + tablename + "(Id INTEGER PRIMARY KEY NOT NULL," + columnName + " " + type + ")";
-  //              cmd.ExecuteNonQuery();
-                cmd.CommandText = @"ALTER TABLE " + tablename + " " + "ADD " + columnName + " " + type;
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        */
 
 
         private void DeleteColumn(string tablename, string columnName)
