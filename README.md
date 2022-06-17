@@ -14,7 +14,7 @@ An ASP.Net Core library that handles automated creation of the Database and the 
    Example: builder.AddContext<User, UserDbContext>("DefaultConnection")
          or builder.AddContext<User, UserDbContext, IUserRepository, UserRepository >("DefaultConnection") for repository pattern
 
-   #Important:
+   # Important:
    this library requires the model to have a single key property that is marked with Key attribute...
    Example:
    public class User
@@ -24,12 +24,12 @@ An ASP.Net Core library that handles automated creation of the Database and the 
         public string Name { get; set; }
    }
 
-    #Prerequisites for Sqlite_AutomatedMigration_library: 
+    Prerequisites for Sqlite_AutomatedMigration_library: 
     1- Microsoft.EntityFrameworkCore
     2- Microsoft.Data.Sqlite
     3- System.ComponentModel.DataAnnotations
 
-    #Prerequisites for SqlServer_AutomatedMigration_library: 
+    Prerequisites for SqlServer_AutomatedMigration_library: 
     1- Microsoft.EntityFrameworkCore
     2- Microsoft.Data.SqlClient
     3- System.ComponentModel.DataAnnotations
