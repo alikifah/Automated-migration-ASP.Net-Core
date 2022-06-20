@@ -44,8 +44,9 @@ An ASP.Net Core library that handles automated creation of the Database and the 
   
     Prerequisites for Sqlite_AutomatedMigration_library: 
     1- Microsoft.EntityFrameworkCore
-    2- Microsoft.Data.Sqlite
-    3- System.ComponentModel.DataAnnotations
+    2- Microsoft.EntityFrameworkCore.Sqlite
+    3- Microsoft.Data.Sqlite
+    4- System.ComponentModel.DataAnnotations
 
     Prerequisites for SqlServer_AutomatedMigration_library: 
     1- Microsoft.EntityFrameworkCore
