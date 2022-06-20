@@ -1,3 +1,14 @@
+/* =============================================================================================================================================
+   Author: Al-Khafaji, Ali Kifah
+   Date:   16.06.2022
+   Description: An ASP.Net Core library that contains extension method for WebApplicationBuilder.
+   the extension method 'AddContext' will create through the magic of reflection the Database and the Table for the Model that
+   is given as generic parameter for this method.
+   this process will be done on Application startup automatically without the need to add migration and update database manually
+   through package manager console.
+     =============================================================================================================================================
+*/
+
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
