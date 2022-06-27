@@ -41,9 +41,16 @@ An ASP.Net Core library that handles automated creation of the Database and the 
         public string Name { get; set; }
    }
   ```
+## Features:
+1- requires key attribute by default.
+2- all model properties are required by default.
+3- supports NotMapped attribute for models that should not be mapped to database.
+4- checks for changes of tables and data base only in development mode, i.e. the code will not run after publishing.
+
 ## Limitations:
 1- this library migrates only view models.. the migration of identity information is not implemented.
 2- this library supports only single public DbSet in each DbContext class.
+3- the SQL server library is still experimental ant not fully tested.
 
 ## Prerequisites
 
