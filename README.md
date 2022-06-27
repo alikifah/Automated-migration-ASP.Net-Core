@@ -41,7 +41,9 @@ An ASP.Net Core library that handles automated creation of the Database and the 
         public string Name { get; set; }
    }
   ```
-  
+## Limitation:
+this library migrates only view models.. the migration of identity information is not implemented.
+
     Prerequisites for Sqlite_AutomatedMigration_library: 
     1- Microsoft.EntityFrameworkCore
     2- Microsoft.EntityFrameworkCore.Sqlite
@@ -53,8 +55,6 @@ An ASP.Net Core library that handles automated creation of the Database and the 
     2- Microsoft.Data.SqlClient
     3- System.ComponentModel.DataAnnotations
     
-    ## Limitation:
-this library migrates only view models.. the migration of identity information is not implemented.
 
 
 
