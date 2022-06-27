@@ -41,7 +41,7 @@ An ASP.Net Core library that handles automated creation of the Database and the 
         public string Name { get; set; }
    }
   ```
-## Limitation:
+## Limitations:
 1- this library migrates only view models.. the migration of identity information is not implemented.
 2- this library supports only single public DbSet in each DbContext class.
 
