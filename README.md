@@ -44,7 +44,7 @@ An ASP.Net Core library that handles automated creation of the Database and the 
 ## Features:
 
    1. requires key attribute by default
-   2. all model properties are required by default
+   2. all model properties are mapped to database as not null by default
    3. supports NotMapped attribute for models that should not be mapped to database
    4. checks for changes of tables and data base only in development mode, i.e. the code will not run after publishing
 
