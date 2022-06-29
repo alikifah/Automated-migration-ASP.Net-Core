@@ -446,83 +446,9 @@ namespace SqlServerHelper
             var m = new Model();
             return p.GetValue(m, null);
         }
-        private Type GetPropertyType<Model>(PropertyInfo p) where Model : new()
+        public static Type GetPropertyType<Model>(PropertyInfo p) where Model : new()
         {
-            var m = new Model();
-            var v = p.GetValue(m);
-            if (v != null)
-            {
-                return v.GetType();
-            }
-            else
-            {
-                try
-                {
-                    p.SetValue(m, "");
-                    return typeof(string);
-                }
-                catch (ArgumentException ex1)
-                {
-                    try
-                    {
-                        p.SetValue(m, new DateTime());
-                        return typeof(DateTime);
-                    }
-                    catch (ArgumentException ex2)
-                    {
-                        try
-                        {
-                            p.SetValue(m, 0d);
-                            return typeof(double);
-                        }
-                        catch (ArgumentException ex3)
-                        {
-                            // Console.WriteLine(ex3.Message);
-                            try
-                            {
-                                p.SetValue(m, 0.0f);
-                                return typeof(float);
-                            }
-                            catch (ArgumentException ex4)
-                            {
-                                try
-                                {
-                                    p.SetValue(m, 0L);
-                                    return typeof(long);
-                                }
-                                catch (ArgumentException ex5)
-                                {
-                                    try
-                                    {
-                                        p.SetValue(m, default(int));
-                                        return typeof(int);
-                                    }
-                                    catch (ArgumentException ex6)
-                                    {
-                                        try
-                                        {
-                                            p.SetValue(m, false);
-                                            return typeof(bool);
-                                        }
-                                        catch (ArgumentException ex7)
-                                        {
-                                            try
-                                            {
-                                                p.SetValue(m, default(byte));
-                                                return typeof(byte);
-                                            }
-                                            catch (ArgumentException ex8)
-                                            {
-                                                return typeof(Nullable);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            return p.PropertyType;
         }
 
 
